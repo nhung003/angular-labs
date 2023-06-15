@@ -1,0 +1,5 @@
+.container { }
+.container >header { height: 120px;}
+.container >nav { height: 60px;}
+.container > main { display: flex; min-height: 400px;}
+.container > footer { height: 35px; line-height: 35px;}

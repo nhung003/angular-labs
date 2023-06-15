@@ -1,0 +1,27 @@
+<form #frm="ngForm" class="mt-3" style="padding: 10px;" >
+    <h5 class="bg-warning p-2">CẬP NHẬT DỰ ÁN</h5>
+    <p class="mb-3">Tên dự án <input type="text" class="form-control" name="tenDuAn" [(ngModel)]="da.tenDuAn"
+          ></p>
+    <p class="mb-3">Ngày Start <input type="date" class="form-control" name="ngayStart" [(ngModel)]="da.ngayStart"></p>
+    <p class="mb-3">Tiền <input type="number" class="form-control" name="tien" [(ngModel)]="da.tien"></p>
+    
+    <p class="mb-3">
+        Leader
+        <select name="leader" id="" ngModel class="form-control">
+            <option value="" *ngFor = "let nv of listNhanVien" value="{{nv.id}}">
+                {{nv.ho}} {{nv.ten}} 
+            </option>
+        </select>
+    </p>
+
+    <p class="mb-3">
+        Thành viên
+        <select name="thanhvien" id="" ngModel multiple size="5" class="form-control">
+            <option value="" *ngFor = "let nv of listNhanVien" value="{{nv.id}}">
+                {{nv.ho}} {{nv.ten}} 
+            </option>
+        </select>
+    </p>
+
+    <p><button class="btn btn-primary p-2" (click)="suaDuAn(frm.value)">Cập nhật dự án</button></p>
+</form>

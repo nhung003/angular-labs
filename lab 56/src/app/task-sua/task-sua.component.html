@@ -1,0 +1,10 @@
+<form class="mt-3">
+    <h5 class="bg-warning p-2">CẬP NHẬT TASK</h5>
+    <p class="mb-3">Tên task <input class="form-control" type="text" name="tenTask" [(ngModel)]="task.tenTask"></p>
+    <p class="mb-3">Mô tả <textarea class="form-control" type="text" name="moTa" [(ngModel)]="task.moTa"></textarea></p>
+    <p class="mb-3">Dự án <input class="form-control" type="number" name="duAnID" [(ngModel)]="task.duAnID"></p>
+    <p class="mb-3">Người thực hiện <input class="form-control" type="number" name="nhanvienID" [(ngModel)]="task.nhanvienID"></p>
+    <p class="mb-3">Độ ưu tiên <input class="form-control" type="number" name="priority" [(ngModel)]="task.priority"></p>
+    <p class="mb-3">Trạng thái <input class="form-control" type="number" name="status" [(ngModel)]="task.status"></p>
+    <p><button class="btn btn-primary p-2" (click)="capnhatTask()">Cập nhật Task</button></p>
+  </form>

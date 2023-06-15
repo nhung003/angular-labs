@@ -1,0 +1,10 @@
+<form class="mt-3">
+    <h5 class="bg-warning p-2">CẬP NHẬT NHÂN VIÊN</h5>
+    <p class="mb-3">Họ<input type="text" class="form-control" name="ho" [(ngModel)]="nv.ho"
+        ></p>
+    <p class="mb-3">Tên<input type="text" class="form-control" name="ten" [(ngModel)]="nv.ten"></p>
+    <p class="mb-3">Ngày sinh<input type="date" class="form-control" name="ngaysinh" [(ngModel)]="nv.ngaysinh"></p>
+    <p class="mb-3">Phái<input type="text" class="form-control" name="phai" [(ngModel)]="nv.phai"></p>
+    <p class="mb-3">Khu vực<input type="text" class="form-control" name="khuvuc" [(ngModel)]="nv.khuvuc"></p>
+    <p><button class="btn btn-primary p-2" (click)="capnhatNV()">Cập nhật nhân viên</button></p>
+</form>

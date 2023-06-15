@@ -1,0 +1,22 @@
+
+<table class="table table-bordered border border-primary mt-3" style="padding: 10px;">
+ <caption align="top" class="bg-warning p-2">DANH SÁCH DỰ ÁN</caption>
+ <tr>
+ <th> id </th>
+ <th> Tên dự án</th>
+ <th> Ngày start</th>
+ <th> Tiền</th>
+ <th> Tác vụ</th>
+
+ </tr>
+ <tr *ngFor="let da of listDuAn">
+ <td> {{da.id}} </td>
+ <td> <a href="" [routerLink]="['/duan', da.id]">{{da.tenDuAn}}</a></td>
+ <td> {{da.ngayStart}}</td>
+<td> {{da.tien}}</td>
+<td>
+    <a href="#" [routerLink]="['/suaduan', da.id]">Sửa</a>
+    <a href="#" (click)="xoaDA(da.id)">Xoa</a>
+</td>
+ </tr>
+</table>

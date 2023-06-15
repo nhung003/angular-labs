@@ -1,0 +1,52 @@
+<!-- <table class="table table-bordered border border-primary mt-3">
+    <caption align="top" class="bg-warning p-2">DANH SÁCH DỰ ÁN</caption>
+    <tr>
+      <th>id</th>
+      <th>Tên dự án</th>
+      <th>Ngày start</th>
+      <th>Tiền</th>
+      <th>Tác vụ</th>
+    </tr>
+    <tr *ngFor="let da of listDuAn">
+      <td>{{ da.id }}</td>
+      <td>
+        <a href="" [routerLink]="['/leader/duan', da.id]">{{ da.tenDuAn }}</a>
+      </td>
+      <td>{{ da.ngayStart | date:'dd/MM/yyyy' }}</td>
+      <td>{{ da.tien | currency:'VND' }}</td>
+      <td>
+        <a href="#" [routerLink]="['/leader/suaduan', da.id]" class="btn btn-primary btn-sm">Sửa</a>
+        <a href="#" class="btn btn-danger btn-sm" (click)="xoaDA(da.id)" >Xóa</a>
+      </td>
+    </tr>
+  </table> -->
+  <table class="table ">
+    <!-- <caption class=" text-center p-2">DANH SÁCH DỰ ÁN</caption> -->
+    <caption align="top" class="bg-warning p-2">DANH SÁCH DỰ ÁN</caption>
+    <thead >
+      <tr>
+        <th>id</th>
+        <th>Tên dự án</th>
+        <th>Ngày start</th>
+        <th>Tiền</th>
+        <th>Tác vụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let da of listDuAn" class="table-light">
+        <td>{{ da.id }}</td>
+        <td>
+          <a href=""[routerLink]="['/leader/duan', da.id]">{{ da.tenDuAn }}</a>
+        </td>
+        <td>{{ da.ngayStart | date:'dd/MM/Y' }}</td>
+        <td>{{(da.tien).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
+
+
+        <td>
+          <a href="#" class="btn btn-primary btn-sm"  [routerLink]="['/leader/suaduan', da.id]">Sửa</a>
+          <a href="#" class="btn btn-danger btn-sm" (click)="xoaDA(da.id)">Xóa</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

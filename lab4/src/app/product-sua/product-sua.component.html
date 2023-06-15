@@ -1,0 +1,47 @@
+<!-- <form action="" class="col-8 m-auto border border-primary p-2">
+    <p>Tên sản phẩm <input name="tensp" [(ngModel)]="sp.tensp" type="text" class="form-control"></p>
+    <p>Giá sản phẩm <input name="tensp" [(ngModel)]="sp.giasp" type="number" class="form-control"></p>
+    <p>Code sản phẩm <input name="tensp" [(ngModel)]="sp.code" type="text" class="form-control"></p>
+    <p>Ngày sản phẩm <input name="tensp" [(ngModel)]="sp.ngay" type="date" class="form-control"></p>
+    <p>Mô tả sản phẩm <textarea name="tensp" [(ngModel)]="sp.mota" type="text" class="form-control"> </textarea></p>
+
+    <p><button class="btn btn-warning py-2 px-5" (click)="capnhatSP()">Sua</button></p>
+</form> -->
+
+<div class="card my-4">
+    <!-- <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2"> -->
+      <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+        <h6 class="text-white text-capitalize ps-3">Addnew product</h6>
+      </div>
+      <div class="form" style="margin: 30px auto">
+      <form action="" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Ten san pham</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tensp" [(ngModel)]="sp.tensp">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Gia san pham</label>
+          <input class="form-control" [(ngModel)]="sp.giasp" type="number" name="giasp">
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Code sản phẩm</label>
+            <input type="text" class="form-control" name="code" [(ngModel)]="sp.code">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Ngay sản phẩm</label>
+            <input type="date" class="form-control" name="ngay" [(ngModel)]="sp.ngay">
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">URL hinh anh</label>
+          <input type="text" class="form-control" name="urlImage" [(ngModel)]="sp.urlImage">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mo ta</label> <br>
+            <textarea name="mota" id="" cols="30" rows="10" style="width: 650px; height: 180px;" [(ngModel)]="sp.mota"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="capnhatSP()">Submit</button>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,8 @@
+input:focus,
+textarea:focus {
+  outline: 1px solid black;
+}
+
+input,textarea{
+    border: 1px solid black;
+}

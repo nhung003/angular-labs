@@ -1,0 +1,57 @@
+<!-- <table class="table table-bordered border border-primary mt-3" style="padding: 10px;">
+    <caption align="top" class="bg-warning p-2">DANH SÁCH NHÂN VIÊN</caption>
+ <tr>
+ <th> id </th>
+ <th> Họ tên</th>
+ <th> Ngày sinh </th>
+ <th> Phái</th>
+ <th> Khu vực</th>
+ <th>Tác vụ</th>
+ </tr>
+ <tr *ngFor="let nv of listNhanVien">
+ <td> {{nv.id}} </td>
+ <td> <a href="" [routerLink]="['/leader/nv', nv.id]">{{nv.ho}} {{nv.ten}}</a></td>
+
+ <td> {{nv.ngaysinh}}</td>
+ <td *ngIf="nv.phai === true; else nuContent">Nam</td>
+<ng-template #nuContent>
+  <td>Nữ</td>
+</ng-template>
+<td> {{nv.khuvuc}}</td>
+<td>
+    <a href="#" [routerLink]="['/leader/suanv', nv.id]">Sửa</a>
+    <a href="#"(click)="xoaNV(nv.id)">Xoa</a>
+</td>
+ </tr> 
+</table> -->
+
+
+<table class="table table-bordered mt-3">
+  <caption align="top" class="bg-warning p-2">DANH SÁCH NHÂN VIÊN</caption>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Phái</th>
+      <th>Khu vực</th>
+      <th>Tác vụ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let nv of listNhanVien">
+      <td>{{nv.id}}</td>
+      <td><a href="" [routerLink]="['/leader/nv', nv.id]">{{nv.ho}} {{nv.ten}}</a></td>
+      <td>{{nv.ngaysinh | date:'dd/MM/Y'}}</td>
+      <td *ngIf="nv.phai; else nuContent">Nam</td>
+      <ng-template #nuContent>
+        <td>Nữ</td>
+      </ng-template>
+      <td>{{nv.khuvuc}}</td>
+      <td>
+        <a href="#" class="btn btn-primary" [routerLink]="['/leader/suanv', nv.id]">Sửa</a>
+        <a href="#" class="btn btn-danger" (click)="xoaNV(nv.id)">Xóa</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

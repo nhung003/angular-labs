@@ -1,0 +1,96 @@
+
+
+<!-- <h4 class="bg-warning mt-3 p-2">DANH SÁCH TASK</h4> -->
+
+<table class="table mt-3">
+  <caption align="top" class="bg-warning p-2">DANH SÁCH TASK</caption>
+  <thead class="thead-dark">
+    <tr>
+      <th>Tên task</th>
+      <th>Mô tả</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Nhân viên</th>
+      <th>Dự án</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of listTask; let i = index">
+      <td>
+        <b><a [routerLink]="['/leader/task', task.id]">{{task.tenTask}}</a></b>
+      </td>
+      <td>{{task.moTa}}</td>
+      <td>
+        <ng-container *ngIf="task.priority === 1; else priorityLow">
+          <span class="text-danger">Cao</span>
+        </ng-container>
+        <ng-template #priorityLow>
+          <span class="text-success">Thấp</span>
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="task.status === 0; else statusInProgress">
+          <span class="text-warning">Chưa bắt đầu</span>
+        </ng-container>
+        <ng-template #statusInProgress>
+          <span class="text-primary">Trong tiến trình</span>
+        </ng-template>
+      </td>
+      <td>
+        <span *ngFor="let nv of listNv">
+          <ng-container *ngIf="task.nhanvienID === nv.id">
+            {{ nv.ho }} {{ nv.ten }}
+          </ng-container>
+        </span>
+      </td>
+      <td>
+        <span *ngFor="let da of listDa">
+          <ng-container *ngIf="task.duAnID === da.id">
+            {{ da.tenDuAn }}
+          </ng-container>
+        </span>
+      </td>
+      <td>
+        <a [routerLink]="['/leader/suatask', task.id]" class="btn btn-primary">Sửa</a> <br>
+        <a href="#" (click)="xoaTask(task.id)" class="btn btn-danger">Xóa</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- <table class="table table-striped">
+  <caption align="top" class="bg-warning p-2">DANH SÁCH TASK</caption>
+  <thead>
+    <tr>
+      <th>Tên task</th>
+      <th>Mô tả</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Nhân viên</th>
+      <th>Dự án</th>
+      <th>Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of listTask; let i = index" class="mb-3 bg-light p-3">
+      <td>
+        <b>Tên task: <a href="" [routerLink]="['/task', task.id]">{{task.tenTask}}</a></b>
+      </td>
+      <td>
+        Mô tả: {{task.moTa}}
+      </td>
+      <td>{{ task.priority == 1 ? "Trung bình" : "cao"}}</td>
+      <td>{{ task.status == 0 ? "Chưa hoàn thành" : "Hoàn thành" }}</td>
+      <td>
+        Nhân viên: {{ getTenNhanVien(task.nhanvienID) }}
+      </td>
+      <td>
+        Dự án: {{ getTenDuan(task.duAnID) }}
+      </td>
+      <td>
+        <a href="#" class="btn btn-primary" [routerLink]="['/suatask', task.id]">Sửa</a>
+        <a href="#" class="btn btn-danger" (click)="xoaTask(i)">Xóa</a>
+      </td>
+    </tr>
+  </tbody>
+</table> -->

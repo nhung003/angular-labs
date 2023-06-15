@@ -1,0 +1,88 @@
+<!-- <h4>QUẢN TRỊ SẢN PHẨM</h4>
+<table class="table table-bordered table-hover">
+    <thead class="bg-warning">
+        <tr>
+            <th>Hình</th>
+            <th>Tên sản phẩm</th>
+            <th>Ngày giá</th>
+            <th>Giá</th>
+            <th>Tác vụ</th>
+
+        </tr>
+        <tr *ngFor="let p of listSP">
+            <td><img [src]="p.urlImage" height="50" [title]="p.tensp|uppercase" alt=""></td>
+            <td><a href="" [routerLink]="['/sanpham', p.id]">{{p.tensp|uppercase}}</a></td>
+            <td [innerText]="p.ngay|date:'dd/MM/YYYY'"></td>
+            <td >{{p.giasp|currency: 'VND'}}</td>
+            <td>
+                <a href="" [routerLink]="['/admin/suasp', p.id]">Sửa</a>
+                <a href="" (click)="xoaSP(p.id)">Xóa</a>
+
+            </td>
+        </tr>
+    </thead>
+
+</table> -->
+
+<div class="card my-4">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+      <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+        <h6 class="text-white text-capitalize ps-3">Products table</h6>
+      </div>
+    </div>
+
+    <div class="card-body px-0 pb-2">
+      <div class="table-responsive p-0">
+        <table class="table align-items-center mb-0">
+          <thead>
+            <tr>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Describe</th>
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sp of listSP">
+              <td>
+                <div class="d-flex px-2 py-1">
+                  <div>
+                    <img src="{{sp.urlImage}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                  </div>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">
+                        <a [routerLink]="['/sanpham', sp.id]" href="">{{sp.tensp|uppercase}}</a>
+                        </h6>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0">{{sp.giasp|currency: 'VND'}}</p>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0" [innerText]="sp.ngay|date:'dd/MM/YYYY'"></p>
+              </td>
+              
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold">{{sp.mota}}</span>
+              </td>
+              <td class="align-middle">
+                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" [routerLink]="['/admin/suasp', sp.id]">
+                  Edit
+                </a>
+                
+              </td>
+              <td>
+                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" (click)="xoaSP(sp.id)">
+                    Delete
+                  </a>
+              </td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

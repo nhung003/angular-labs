@@ -1,0 +1,59 @@
+<form class="mt-3" #frm1="ngForm" (ngSubmit)="themDA(frm1.value)" style="padding: 10px;">
+      <h5 class="bg-warning p-2">THÊM DỰ ÁN</h5>
+  
+      <p class="mb-3">
+          Tên dự án <input type="text" class="form-control" name="tenDuAn" [(ngModel)]="tenDuAn" required minlength="6"
+              #loitda="ngModel">
+      </p>
+      <p *ngIf="loitda.invalid && (loitda.dirty || loitda.touched)" class="text-danger">
+          <span *ngIf="loitda.errors?.['required']">Tên dự án là bắt buộc.</span>
+          <span *ngIf="loitda.errors?.['minlength']">Tên dự án phải có ít nhất 6 ký tự.</span>
+      </p>
+  
+      <p class="mb-3">
+          Ngày Start <input type="date" class="form-control" name="ngayStart" [(ngModel)]="ngayStart" required
+              #loingay="ngModel">
+      </p>
+      <p *ngIf="loingay.invalid && (loingay.dirty || loingay.touched)" class="text-danger">
+          <span *ngIf="loingay.errors?.['required']">Ngày dự án là bắt buộc.</span>
+      </p>
+  
+      <p class="mb-3">
+          Tiền <input type="number" class="form-control" name="tien" [(ngModel)]="tien" required #loitien="ngModel">
+      </p>
+      <p *ngIf="loitien.invalid && (loitien.dirty || loitien.touched)" class="text-danger">
+          <span *ngIf="loitien.errors?.['required']">Tiền dự án là bắt buộc.</span>
+      </p>
+  
+      <p class="mb-3">
+          Leader
+          <select class="form-control" name="leader" ngModel required #loileader="ngModel">
+              <option *ngFor="let nv of listNhanVien; let j = index">{{ nv.ho }} {{ nv.ten }}</option>
+          </select>
+      </p>
+      <p *ngIf="loileader.invalid && (loileader.dirty || loileader.touched)" class="text-danger">
+          <span *ngIf="loileader.errors?.['required']">Leader là bắt buộc.</span>
+      </p>
+  
+      <p class="mb-3">
+          Thành viên
+          <select class="form-control" name="thanhvien" ngModel required #loithanhvien="ngModel" multiple size="5">
+              <option *ngFor="let nv of listNhanVien; let j = index">{{ nv.ho }} {{ nv.ten }}</option>
+          </select>
+      </p>
+      <p *ngIf="loithanhvien.invalid && (loithanhvien.dirty || loithanhvien.touched)" class="text-danger">
+          <span *ngIf="loithanhvien.errors?.['required']">Thành viên là bắt buộc.</span>
+      </p>
+  
+      <button class="btn btn-primary p-2" [disabled]="!loitda.valid || !loingay.valid || !loitien.valid" type="submit">
+          Thêm dự án
+      </button>
+  
+      <!-- <p>Value: {{frm1.value|json}}</p>
+      <p>Ten du an: {{da.tenDuAn}}</p>
+  
+      <p>loiun.invalid:  {{ loitda.invalid }} </p>
+      <p>loiun.errors.['required']: {{loitda.errors?.['required'] | json}} </p>
+      <p> loiun.errors?.['minlength']: {{loitda.errors?.['minlength'] | json}} </p> -->
+  </form>
+  

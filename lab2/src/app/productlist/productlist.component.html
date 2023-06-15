@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">DANH SÁCH SẢN PHẨM
+        <label for="" class="float-end">
+            <input name="tk" [(ngModel)]="tukhoa" (keyup)="locSP()">
+            <em class="text-danger">{{tukhoa}}</em>
+        </label>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead class="header">
+                <th>Hình</th>
+                <th>Tên SP</th>
+                <th>Mã SP</th>
+                <th>Ngày</th>
+                <th>Giá</th>
+                <th>Đánh giá</th>
+            </thead>
+            <tbody>
+                <tr *ngFor='let p of products'>
+                    <!-- dòng dữ liệu -->
+                    <td><img src="{{p.urlImage}}" alt="" height="50"></td>
+                    <td>{{p.tensp | uppercase}}</td>
+                    <td>{{ p.code }}</td>
+                    <td>{{p.ngay|date: 'dd/MM/Y'}}</td>
+                    <td>{{ p.giasp * 23000 | currency:'VND':'symbol':'1.0-0' }}</td>
+                    <td>
+                        <div class="crop" [style.width.px]="p.starRate*90/5" title="rating">
+                            <div style="width: 90px;">
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">Số lượng sản phẩm: <b>0</b></div>
+</div>

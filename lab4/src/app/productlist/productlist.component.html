@@ -1,0 +1,53 @@
+<!-- <div class="sp mb-3" *ngFor="let sp of listSP">
+    <img src="{{sp.urlImage}}" alt="" height="100" width="100">
+    <h4><a [routerLink]="['/sanpham', sp.id]" href="">{{sp.tensp}}</a></h4>
+    <p>{{sp.mota}}</p>
+    <p>{{sp.giasp}}</p>
+
+</div> -->
+
+
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Products table</h6>
+              </div>
+            </div>
+
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Describe</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let sp of listSP">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="{{sp.urlImage}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">
+                                <a [routerLink]="['/sanpham', sp.id]" href="">{{sp.tensp}}</a>
+                                </h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">{{sp.giasp}}</p>
+                      </td>
+                      
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{sp.mota}}</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>

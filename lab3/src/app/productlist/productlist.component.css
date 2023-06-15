@@ -1,0 +1,10 @@
+.crop{overflow: hidden;}
+.header{
+    background-color: yellow;
+    height: 30px;
+    text-align: center;
+}
+td{
+    background-color: green;
+    color: azure;
+}

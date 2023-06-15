@@ -1,0 +1,68 @@
+<form #frm="ngForm" class="mt-3" (ngSubmit)="suaTask(frm)">
+  <h5 class="bg-warning p-2">CẬP NHẬT TASK</h5>
+  <p class="mb-3">
+    Tên task
+    <input class="form-control" type="text" name="tenTask" [(ngModel)]="task.tenTask" required minlength="6" #loiten="ngModel">
+  </p>
+  <p *ngIf="loiten.invalid && (loiten.dirty || loiten.touched)" class="text-danger">
+    <span *ngIf="loiten.errors?.['required']">Tên task là bắt buộc.</span>
+    <span *ngIf="loiten.errors?.['minlength']">Tên task phải có ít nhất 6 ký tự.</span>
+  </p>
+  
+  <p class="mb-3">
+    Mô tả
+    <textarea class="form-control" name="moTa" [(ngModel)]="task.moTa" required minlength="10" #loimota="ngModel"></textarea>
+  </p>
+  <p *ngIf="loimota.invalid && (loimota.dirty || loimota.touched)" class="text-danger">
+    <span *ngIf="loimota.errors?.['required']">Mô tả là bắt buộc.</span>
+    <span *ngIf="loimota.errors?.['minlength']">Mô tả phải có ít nhất 10 ký tự.</span>
+  </p>
+
+  <p class="mb-3">
+    Dự án
+    <select class="form-control" name="duAnID" ngModel required #loida="ngModel">
+      <option *ngFor="let da of listDuAn; let j = index" [value]="da.id">{{ da.tenDuAn }}</option>
+    </select>
+  </p>
+  <p *ngIf="loida.invalid && (loida.dirty || loida.touched)" class="text-danger">
+    <span *ngIf="loida.errors?.['required']">Dự án là bắt buộc.</span>
+  </p>
+
+  <p class="mb-3">
+    Người thực hiện
+    <select class="form-control" name="nhanvienID" ngModel required #loinhanvien="ngModel">
+      <option *ngFor="let nv of listNhanVien; let i = index" [value]="nv.id">{{ nv.ho }} {{ nv.ten }}</option>
+    </select>
+  </p>
+  <p *ngIf="loinhanvien.invalid && (loinhanvien.dirty || loinhanvien.touched)" class="text-danger">
+    <span *ngIf="loinhanvien.errors?.['required']">Người thực hiện là bắt buộc.</span>
+  </p>
+
+  <p class="mb-3">
+    Độ ưu tiên
+    <select class="form-control" name="priority" ngModel required #loipriority="ngModel">
+      <option value="">-- Chọn độ ưu tiên --</option>
+      <option value="high">Cao</option>
+      <option value="low">Thấp</option>
+    </select>
+  </p>
+  <p *ngIf="loipriority.invalid && (loipriority.dirty || loipriority.touched)" class="text-danger">
+    <span *ngIf="loipriority.errors?.['required']">Độ ưu tiên là bắt buộc.</span>
+  </p>
+
+  <p class="mb-3">
+    Trạng thái
+    <select class="form-control" name="status" ngModel required #loistatus="ngModel">
+      <option value="">-- Chọn trạng thái --</option>
+      <option value="not-started">Chưa bắt đầu</option>
+      <option value="in-progress">Đang thực hiện</option>
+    </select>
+  </p>
+  <p *ngIf="loistatus.invalid && (loistatus.dirty || loistatus.touched)" class="text-danger">
+    <span *ngIf="loistatus.errors?.['required']">Trạng thái là bắt buộc.</span>
+  </p>
+
+  <p>
+    <button class="btn btn-primary p-2" [disabled]="frm.invalid" type="submit">Cập nhật Task</button>
+  </p>
+</form>

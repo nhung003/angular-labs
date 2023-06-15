@@ -1,0 +1,66 @@
+<h4 class="bg-warning mt-3 p-2">CHI TIẾT TASK</h4>
+  <!-- <div> 
+  <b>Tên task: {{task.tenTask}}</b><br>
+   Mô tả: {{task.moTa}} 
+  </div>
+  <div class="mb-3 border-bottom row">
+  <div class="col-6">
+  Priority: {{task.priority}}<br>
+  Status: {{task.status}}
+  </div>
+  <div class="col-6">
+  Nhân viên {{task.nhanvienID}}<br>
+  Dự án: {{task.duAnID}}
+ </div>
+ </div> -->
+
+ <table class="table table-bordered mt-3">
+  <thead class="thead-dark">
+    <tr>
+      <th>Tên task</th>
+      <th>Mô tả</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Nhân viên</th>
+      <th>Dự án</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <b><a>{{task.tenTask}}</a></b>
+      </td>
+      <td>{{task.moTa}}</td>
+      <td>
+        <ng-container *ngIf="task.priority === 1; else priorityLow">
+          <span class="text-danger">Cao</span>
+        </ng-container>
+        <ng-template #priorityLow>
+          <span class="text-success">Thấp</span>
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="task.status === 0; else statusInProgress">
+          <span class="text-warning">Chưa bắt đầu</span>
+        </ng-container>
+        <ng-template #statusInProgress>
+          <span class="text-primary">Trong tiến trình</span>
+        </ng-template>
+      </td>
+      <td>
+        <span *ngFor="let nv of listNv">
+          <ng-container *ngIf="task.nhanvienID === nv.id">
+            {{ nv.ho }} {{ nv.ten }}
+          </ng-container>
+        </span>
+      </td>
+      <td>
+        <span *ngFor="let da of listDa">
+          <ng-container *ngIf="task.duAnID === da.id">
+            {{ da.tenDuAn }}
+          </ng-container>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
